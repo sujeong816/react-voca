@@ -1,13 +1,20 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import useFetch from "../hook/useFetch";
 
 export default function DayList() {
-  const [days, setDays] = useState([]);
-  const [count, setCount] = useState(0);
 
-  function onClick() {
-    setCount(count + 1);
-  }
+    const days = useFetch("http://localhost:3001/days");
+//   const [days, setDays] = useState([]);
+
+//   useEffect(() => {
+//     /** 의존성 배열: [] 값이 변경됐을 때만 useEffect 실행 */
+//     fetch("http://localhost:3001/days")
+//     .then((res) => { /** API */
+//       return res.json();
+//     }).then(data => {
+//         setDays(data);
+//     });
+//   }, []);
 
   return (
     <div>
@@ -18,7 +25,6 @@ export default function DayList() {
           </li>
         ))}
       </ul>
-      <button onClick={onClick}>{count}</button>
     </div>
   );
 }
