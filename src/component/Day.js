@@ -6,18 +6,14 @@ export default function Day() {
   //   const day = useParams().day;
   const { day } = useParams();
 
-  const words = useFetch(`http://localhost:3001/words?day=${day}`)
+  const words = useFetch(`http://localhost:3001/words?day=${day}`);
 
   return (
     <div>
       <h2>Day {day}</h2>
-      <table>
-        <tbody>
-          {words.map((word) => (
-            <Word word={word} key={word.id} />
-          ))}
-        </tbody>
-      </table>
+      {words.map((word) => (
+        <Word word={word} key={word.id} />
+      ))}
     </div>
   );
 }
