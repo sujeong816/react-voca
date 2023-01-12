@@ -11,7 +11,7 @@ export default function Word({ word: w }) {
 
   function toggleIsDone() {
     // setIsDone(!isDone)
-    fetch(`http://localhost:3001/${word.id}`, {
+    fetch(`http://localhost:3001/words/${word.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application.json",
@@ -19,7 +19,7 @@ export default function Word({ word: w }) {
 
       body: JSON.stringify({
         ...word /** 기존데이터에 */,
-        isDone: isDone /** isDone 상태를 바꿔서 저장 */,
+        isDone: !isDone, /** isDone 상태를 바꿔서 저장 */
       }),
     }).then((res) => {
       if (res.ok) {
@@ -54,6 +54,7 @@ export default function Word({ word: w }) {
           <td>{word.eng}</td>
           <td>{isShow && word.kor}</td>{" "}
           {/** isShow가 true일 때만 단어 뜻이 보임 */}
+          <td className="level_area">{word.level}</td>
           <td>
             <button onClick={toggleIsShow}>
               뜻 {isShow ? "숨기기" : "보기"}
