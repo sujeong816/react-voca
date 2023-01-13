@@ -4,6 +4,7 @@ import useFetch from "../hook/useFetch";
 
 export default function CreateWord() {
   const days = useFetch("http://localhost:3001/days");
+  const levels = useFetch("http://localhost:3001/levels");
   const navigate = useNavigate();
 
   function onSubmit(e) {
@@ -20,6 +21,7 @@ export default function CreateWord() {
         eng: engRef.current.value,
         kor: korRef.current.value,
         isDone: false,
+        level: levRef.current.value
       }),
     }).then((res) => {
       if (res.ok) {
@@ -32,6 +34,7 @@ export default function CreateWord() {
   const engRef = useRef(null); //DOM 접근 가능
   const korRef = useRef(null);
   const dayRef = useRef(null);
+  const levRef = useRef(null);
 
   return (
     <form onSubmit={onSubmit}>
@@ -53,6 +56,17 @@ export default function CreateWord() {
               {day.day}
             </option>
           ))}
+        </select>
+      </div>
+
+      <div className="input_area">
+        <label>난이도</label>
+        <select ref={levRef}>
+          {levels.map( (level) =>(
+            <option key={level.lv} value={level.lv}>
+              {level.lv}
+            </option>
+          ) )}
         </select>
       </div>
 
