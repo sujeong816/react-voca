@@ -8,9 +8,19 @@ export default function Day() {
 
   const words = useFetch(`http://localhost:3001/words?day=${day}`);
 
+  function del() {
+    /** 날짜 삭제 함수 */
+    if (window.confirm("삭제하시겠습니까?")) {
+    }
+  }
   return (
     <div>
-      <h2>Day {day}</h2>
+      <div>
+        <h3>Day {day}</h3>
+        <button onClick={del} className="btn_del">
+          삭제
+        </button>
+      </div>
       {words.map((word) => (
         <Word word={word} key={word.id} />
       ))}
