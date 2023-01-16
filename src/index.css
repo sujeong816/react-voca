@@ -105,6 +105,19 @@ table td:first-child {
   background-color: firebrick;
 }
 
+.day_btn_del {
+  float: right;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: firebrick;
+  display: inline;
+}
+
+.btn_h3 {
+  display: inline;
+}
+
 button {
   padding: 10px;
   font-weight: bold;
