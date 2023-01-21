@@ -30,6 +30,10 @@ export default function Day() {
     }
   }
 
+  function dayDel(){
+
+  }
+
   if(days.id === 0){
     return null;
   }
@@ -39,7 +43,11 @@ export default function Day() {
       <div>
         <h3 className="btn_h3">Day {day}</h3>
         <button onClick={del} className="day_btn_del">
-          삭제
+          날짜 삭제
+        </button>
+
+        <button onClick={dayDel} className="word_del">
+          단어 삭제
         </button>
       </div>
       {words.map((word) => (
