@@ -118,6 +118,16 @@ table td:first-child {
   display: inline;
 }
 
+.word_del {
+  float: right;
+  margin-left: 270px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  color: #fff;
+  background-color: firebrick;
+  display: inline;
+}
+
 button {
   padding: 10px;
   font-weight: bold;
